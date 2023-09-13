@@ -1,17 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import React from "react";
+import ReactDOM from "react-dom";
+import { createRoot } from 'react-dom/client';
+import { Auth0Provider } from '@auth0/auth0-react';
+import App from "./App";
+import "./index.css";
+import "bootstrap/dist/css/bootstrap.css";
+import "remixicon/fonts/remixicon.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+const root = createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <Auth0Provider
+    domain="dev-mtrras8wa4ynb5h6.us.auth0.com"
+    clientId="Ip80W1Ain0KBJh64jsHc3BLpGOMAkUJp"
+    authorizationParams={{
+      redirect_uri: window.location.origin
+    }}
+  >
     <App />
-  </React.StrictMode>
+  </Auth0Provider>,
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
